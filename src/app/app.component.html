@@ -1,0 +1,12 @@
+<h1 [ngStyle]="titleStyle">Bienvenue sur {{ title }}, {{ username }}</h1>
+
+<button (click)="addHero()">Ajouter un héros</button>
+<p>
+  <label for="InputUsername">Votre nom
+    <input id="InputUsername" type="text" name="name" [(ngModel)]="username">
+  </label>
+</p>
+
+<ul>
+  <li *ngFor="let hero of heroes">{{ hero }}</li>
+</ul>
