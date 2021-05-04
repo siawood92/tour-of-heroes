@@ -8,16 +8,46 @@ let heroCount = 2;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'La revue des 1 héros';
-  titleStyle = {'font-family' : 'Arial', 'color' : 'red'};
-  username = "Anonymous";
+  // title = 'La Revue des héros';
+  // titleStyle = { 'font-family': 'Arial', 'color': 'red' };
+  username = 'Anonymous';
   heroes = [
-    "Batman",
-    "Catwoman",
-    "Wonder Woman",
-    "Iron Man"
+    'Batman',
+    'Superman',
+    'Wonderwoman',
+    'Ironman'
   ];
-  addHero(){
-    this.title = 'La tour des ' + (heroCount++) + ' héros';
+  evils = [
+    'Joker',
+    'Luthor',
+    'WonderTrump',
+    'Waterman'
+  ]
+  heroToAdd = '';
+  heroToRemove = '';
+  vilainToAdd = '';
+  vilainToRemove = '';
+  addHero() {
+    this.heroes.push(this.heroToAdd);
+    // this.title = 'La Revue des ' + this.heroes.length + ' héros.';
+  }
+  removeHero(heroToRemove: string) {
+    this.heroes.forEach((value, index) => {
+      if (value == heroToRemove) this.heroes.splice(index, 1);
+    });
+  }
+  manageHero(heroToManage: string) {
+    this.heroes.forEach((value, index) => {
+      if (value == heroToManage) this.heroes.splice(index, 1);
+      else this.heroes.push(heroToManage)
+    });
+  }
+  manageCharacter(characterToManage: string, table) {
+    if (table.indexOf(characterToManage) !== -1) {
+      table.forEach((value, index) => {
+        if (value == characterToManage) table.splice(index, 1);
+      });
+    } else table.push(characterToManage)
   }
 }
+
