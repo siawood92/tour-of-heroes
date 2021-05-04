@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import Hero from '../types/hero.type';
+
 @Component({
   selector: 'app-heroes-list',
   templateUrl: './heroes-list.component.html',
@@ -7,22 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroesListComponent implements OnInit {
 
-  heroes: Hero[] = [
-    { id : 1, name : 'Batman' },
-    { id : 2, name : 'Superman' },
-    { id : 3, name : 'Spiderman' },
-    ];
-
-    selectedHero: Hero;
-    
+  heroes = [
+    { id : 1, name : 'Batman' }, 
+    { id : 2, name : 'Superman' }, 
+    {id : 3, name : 'Spiderman' },
+  ];
 
   constructor() { }
-
-  constructor() { }
-selectHero(hero: Hero) {
-this.selectedHero = hero;
-}
-
 
   ngOnInit(): void {
   }
